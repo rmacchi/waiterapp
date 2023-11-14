@@ -1,5 +1,7 @@
 import { Router } from 'express';
+
 import { listCategories } from './App/useCases/categories/listCategory';
+import { createCategory } from './App/useCases/categories/createCategory';
 
 export const router = Router();
 
@@ -8,9 +10,7 @@ router.get('/categories', listCategories);
 
 // Create category
 
-router.post('/categories', (req, res) => {
-    res.send('OK');
-});
+router.post('/categories', createCategory);
 
 // List products
 
