@@ -1,5 +1,4 @@
 import path from 'node:path';
-
 import { Router } from 'express';
 import multer from 'multer';
 
@@ -15,6 +14,9 @@ const upload = multer({
         destination(req, file, callback) {
             callback(null, path.resolve(__dirname, '..', 'uploads'));
         },
+        filename(req, file, callback) {
+            callback(null, `${Date.now()}-${file.originalname}`);
+        }
     })
 });
 
