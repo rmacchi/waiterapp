@@ -8,6 +8,7 @@ import { listProducts } from './App/useCases/products/listProducts';
 import { createProduct } from './App/useCases/products/createProducts';
 import { listProductByCategory } from './App/useCases/categories/listProductByCategory';
 import { listOrders } from './App/useCases/orders/listOrders';
+import { createOrder } from './App/useCases/orders/createOrder';
 
 export const router = Router();
 
@@ -47,9 +48,7 @@ router.get('/orders', listOrders);
 
 //Create order
 
-router.post('/orders', (req, res) => {
-    res.send('OK');
-});
+router.post('/orders', createOrder);
 
 // Change order status
 
