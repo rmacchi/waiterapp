@@ -2,11 +2,11 @@
   <img src=".github/preview.svg" alt="Capa do projeto" width="100%" />
 </p>
 
-## 💻 Projeto
+## 💻 Project
 
 Application created to be used in restaurants, helping to receive and organize orders.
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
 This project was developed with the following technologies:
 
