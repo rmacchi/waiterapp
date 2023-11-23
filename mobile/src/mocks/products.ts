@@ -1,38 +1,28 @@
 export const products = [
   {
-    _id: '6372e040f52e37ef85fe2c5e',
-    name: 'Pizza quatro queijos',
-    description: 'Deliciosa pizza quatro queijos com borda simples',
-    imagePath: '1668472896991-quatro-queijos.png',
+    _id: '6556d6374723af0a08786c49',
+    name: 'Pizza de Frango com Catupiry',
+    description: 'Uma deliciosa pizza de frango com catupiry e borda simples',
+    imagePath: '1700189751636-frango-catupiry.png',
     price: 40,
     ingredients: [
       {
-        name: 'Mussarela',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c5f'
+        'name': 'Frango desfiado',
+        'icon': '🍗',
+        '_id': '6556d6374723af0a08786c4a'
       },
       {
-        name: 'Parmesão',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c60'
-      },
-      {
-        name: 'Gouda',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c61'
-      },
-      {
-        name: 'Brie',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c62'
+        'name': 'Catupiry',
+        'icon': '🍥',
+        '_id': '6556d6374723af0a08786c4b'
       }
     ],
   },
   {
-    _id: '6372e276a381106c0f854cb3',
+    _id: '6556d75c4723af0a08786c5b',
     name: 'Coca cola',
     description: 'Coca cola lata geladinha topzera',
-    imagePath: '1668473462705-coca-cola.png',
+    imagePath: '1700190044664-coca-cola.png',
     price: 7,
     ingredients: [],
   },
