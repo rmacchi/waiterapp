@@ -16,10 +16,16 @@ import { useState } from 'react';
 interface TableModalProps {
   visible: boolean;
   onClose: () => void;
+  onSave: (table: string) => void;
 }
 
-export function TableModal({ visible, onClose }: TableModalProps) {
+export function TableModal({ visible, onClose, onSave }: TableModalProps) {
   const [table, setTable] = useState('');
+
+  function handleSave() {
+    onSave(table);
+    onClose();
+  }
 
   return (
     <Modal
@@ -45,7 +51,7 @@ export function TableModal({ visible, onClose }: TableModalProps) {
               onChangeText={setTable}
             />
 
-            <Button onPress={() => alert(table)}>
+            <Button onPress={handleSave} disabled={table.length === 0}>
               Salvar
             </Button>
           </Form>
