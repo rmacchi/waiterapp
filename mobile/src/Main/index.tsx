@@ -30,7 +30,7 @@ export function Main() {
           </Button>
         </FooterContainer>
       </Footer>
-      <TableModal />
+      <TableModal visible={true}/>
     </>
   );
 }
