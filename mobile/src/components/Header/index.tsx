@@ -10,9 +10,10 @@ import {
 
 interface HeaderProps {
   selectedTable: string;
+  onCancelOrder: () => void;
 }
 
-export function Header ({ selectedTable }: HeaderProps) {
+export function Header ({ selectedTable, onCancelOrder }: HeaderProps) {
   return (
     <Container>
       {!selectedTable && (
@@ -31,7 +32,7 @@ export function Header ({ selectedTable }: HeaderProps) {
           <OrderHeader>
             <Text weight="600" size={24}>Pedido</Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onCancelOrder}>
               <Text color="#D73530" weight="600" size={14}>
                 cancelar pedido
               </Text>
@@ -39,7 +40,7 @@ export function Header ({ selectedTable }: HeaderProps) {
           </OrderHeader>
 
           <Table>
-            <Text>Mesa {selectedTable}</Text>
+            <Text color="#666">Mesa {selectedTable}</Text>
           </Table>
         </Content>
       )}
