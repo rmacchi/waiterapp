@@ -1,9 +1,16 @@
 import { Modal } from 'react-native';
 
-import { Text } from '../Text';
 import { Product } from '../../types/Product';
-import { Image, CloseButton } from './styles';
+
+import {
+  Image,
+  CloseButton,
+  Header,
+  ModalBody
+} from './styles';
+
 import { Close } from '../Icons/Close';
+import { Text } from '../Text';
 
 interface ProductModalProps {
   visible: boolean;
@@ -32,6 +39,13 @@ export function ProductModal({ visible, onClose, product }: ProductModalProps) {
           <Close />
         </CloseButton>
       </Image>
+
+      <ModalBody>
+        <Header>
+          <Text size={24} weight="600">{product.name}</Text>
+          <Text color="#666" style={{ marginTop: 8 }}>{product.description}</Text>
+        </Header>
+      </ModalBody>
     </Modal>
   );
 }
