@@ -2,7 +2,8 @@ import { Modal } from 'react-native';
 
 import { Text } from '../Text';
 import { Product } from '../../types/Product';
-import { Image } from './styles';
+import { Image, CloseButton } from './styles';
+import { Close } from '../Icons/Close';
 
 interface ProductModalProps {
   visible: boolean;
@@ -26,7 +27,11 @@ export function ProductModal({ visible, onClose, product }: ProductModalProps) {
         source={{
           uri: `http://192.168.15.15:3001/uploads/${product.imagePath}`
         }}
-      ></Image>
+      >
+        <CloseButton onPress={onClose}>
+          <Close />
+        </CloseButton>
+      </Image>
     </Modal>
   );
 }
