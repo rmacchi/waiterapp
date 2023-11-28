@@ -1,8 +1,10 @@
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { CartItem } from '../../types/CartItem';
 import { Actions, Item, ProductContainer, Image, QuantityContainer, ProductDetails } from './styles';
 import { Text } from '../Text';
 import { formatCurrency } from '../../utils/formatCurrency';
+import { PlusCircle } from '../Icons/PlusCircle';
+import { MinusCircle } from '../Icons/MinusCircle';
 
 interface CartProps {
   cartItems: CartItem[];
@@ -36,7 +38,16 @@ export function Cart({ cartItems }: CartProps) {
               </Text>
             </ProductDetails>
           </ProductContainer>
-          <Actions></Actions>
+
+          <Actions>
+            <TouchableOpacity>
+              <PlusCircle />
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+              <MinusCircle />
+            </TouchableOpacity>
+          </Actions>
         </Item>
       )}
     />
