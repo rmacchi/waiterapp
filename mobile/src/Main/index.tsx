@@ -31,7 +31,32 @@ export function Main() {
   }
 
   function handleAddToCart(product: Product) {
-    alert(product.name);
+    if (!selectedTable) {
+      setIsTableModalVisible(true);
+    }
+
+    setCartItems((prevState) => {
+      const itemIndex = prevState.findIndex(
+        cartItem => cartItem.product._id === product._id
+      );
+
+      if (itemIndex < 0) {
+        return prevState.concat({
+          quantity: 1,
+          product,
+        });
+      }
+
+      const newCartItems = [...prevState];
+      const item = newCartItems[itemIndex];
+
+      newCartItems[itemIndex] = {
+        ...item,
+        quantity: item.quantity + 1,
+      };
+
+      return newCartItems;
+    });
   }
 
   return (
@@ -62,7 +87,10 @@ export function Main() {
           )}
 
           {selectedTable && (
-            <Cart cartItems={cartItems}/>
+            <Cart
+              cartItems={cartItems}
+              onAdd={handleAddToCart}
+            />
           )}
         </FooterContainer>
       </Footer>
