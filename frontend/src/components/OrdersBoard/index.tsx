@@ -4,13 +4,16 @@ import { OrderModal } from "../OrderModal";
 import { useState } from "react";
 import { api } from "../../utils/api";
 
+import { toast } from "react-toastify";
+
 interface OrdersBoardProps {
   icon: string;
   title: string;
   orders: Order[];
+  onCancelOrder: (orderId: string) => void;
 }
 
-export function OrdersBoard({icon, title, orders}: OrdersBoardProps) {
+export function OrdersBoard({icon, title, orders, onCancelOrder}: OrdersBoardProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState<null | Order>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,11 +29,14 @@ export function OrdersBoard({icon, title, orders}: OrdersBoardProps) {
   }
 
   async function handleCancelOrder() {
-    setIsLoading(true)
+    setIsLoading(true);
 
     await api.delete(`/orders/${selectedOrder?._id}`);
 
-    setIsLoading(false)
+    toast.success(`O pedido da mesa ${selectedOrder?.table} foi cancelado!`)
+    onCancelOrder(selectedOrder!._id);
+    setIsLoading(false);
+    setIsModalVisible(false);
   }
 
   return (
